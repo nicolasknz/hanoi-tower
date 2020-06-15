@@ -1,0 +1,17 @@
+#container  div {
+    display: flex; 
+    flex-direction: column-reverse; 
+    align-items: center;
+    height: 200px;
+    width: 10px;
+    background-color: black;
+
+
+}
+
+#container {
+    margin-top: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;	
+}
