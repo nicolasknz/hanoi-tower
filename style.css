@@ -1,10 +1,15 @@
-#container  div {
+:root {
+
+    --height-torre: 20px;
+}
+.containerTorre  div {
     display: flex; 
     flex-direction: column-reverse; 
     align-items: center;
     height: 200px;
     width: 10px;
     background-color: black;
+    margin: 0 auto;
 }
 #container {
     margin-top: 20rem;
@@ -12,8 +17,38 @@
     flex-direction: row;
     justify-content: space-around;	
 }
-.disco1 {
+/* .disco1css {
     width: 350px;
     height: 50px;
     background: red;
+} */
+.containerTorre {
+    width: 500px;
+    height: 200px;
+  
+}
+
+#disco1 {
+    width: 110px;
+    height: var(--height-torre);
+    background-color: blue;
+    margin-left: -50px;
+}
+#disco2 {
+    width: 90px;
+    height: var(--height-torre);
+    background-color: orange;
+    margin-left: -39px;
+}
+#disco3 {
+    width: 70px;
+    height: var(--height-torre);
+    background-color:hotpink;
+    margin-left: -28px;
+}
+#disco4 {
+    width: 50px;
+    height: var(--height-torre);
+    background-color: green;
+    margin-left: -20px
 }
