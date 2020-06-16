@@ -43,13 +43,17 @@ container.addEventListener ("click" , function(e) {
         }
     }
     if (e.target.classList.contains("torre3")) {
-     
+    
         if( estado % 2 !== 0) {
             ultimoDisco = torre3.lastElementChild;
             estado++;
         } else if ( estado % 2 === 0) {
             torre3.appendChild(ultimoDisco);
             estado++;
+        }
+
+        if(torre3.childElementCount === 4){
+            alert("Vitória");
         }
     }
 
@@ -71,5 +75,3 @@ torre1.appendChild(discoDinamico3);
 const discoDinamico4 = document.createElement("div");
 discoDinamico4.id = "disco4";
 torre1.appendChild(discoDinamico4);
-
-
