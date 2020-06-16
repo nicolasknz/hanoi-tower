@@ -30,14 +30,96 @@ function criarTorres () {
     torre3.classList.add("torre3");
     containerTorre3.appendChild(torre3);
 
-    criarDiscos(torre1);
 
+    const discoDinamico1 = document.createElement("div");
+    discoDinamico1.id = "disco1";
+    torre1.appendChild(discoDinamico1);
+
+    const discoDinamico2 = document.createElement("div");
+    discoDinamico2.id = "disco2";
+    torre1.appendChild(discoDinamico2);
+
+    const discoDinamico3 = document.createElement("div");
+    discoDinamico3.id = "disco3";
+    torre1.appendChild(discoDinamico3);
+
+    const discoDinamico4 = document.createElement("div");
+    discoDinamico4.id = "disco4";
+    torre1.appendChild(discoDinamico4);
 
     container.addEventListener ("click" , function(e) {
 
         if (ultimoDisco === null) {
             estado++
         }
+        
+        if(e.target.id === "disco4" && discoDinamico4 === torre1.lastElementChild){
+            ultimoDisco = torre1.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco3" && discoDinamico3 === torre1.lastElementChild){
+            ultimoDisco = torre1.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco2" && discoDinamico2 === torre1.lastElementChild){
+            ultimoDisco = torre1.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco1" && discoDinamico1 === torre1.lastElementChild){
+            ultimoDisco = torre1.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        // torre 2
+        if(e.target.id === "disco4" && discoDinamico4 === torre2.lastElementChild){
+            ultimoDisco = torre2.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco3" && discoDinamico3 === torre2.lastElementChild){
+            ultimoDisco = torre2.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco2" && discoDinamico2 === torre2.lastElementChild){
+            ultimoDisco = torre2.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco1" && discoDinamico1 === torre2.lastElementChild){
+            ultimoDisco = torre2.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        
+        // torre 3
+
+        if(e.target.id === "disco4" && discoDinamico4 === torre3.lastElementChild){
+            ultimoDisco = torre3.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco3" && discoDinamico3 === torre3.lastElementChild){
+            ultimoDisco = torre3.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco2" && discoDinamico2 === torre3.lastElementChild){
+            ultimoDisco = torre3.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+        if(e.target.id === "disco1" && discoDinamico1 === torre3.lastElementChild){
+            ultimoDisco = torre3.lastElementChild;
+            console.log(ultimoDisco);
+            estado++;
+        }
+    
+
+
         if (e.target.classList.contains("torre1")) {
             if( estado % 2 !== 0) {
                 estado++;
@@ -93,93 +175,6 @@ function criarTorres () {
     })
 }
 criarTorres();
-
-function criarDiscos(torre1){
-    const discoDinamico1 = document.createElement("div");
-    discoDinamico1.id = "disco1";
-    torre1.appendChild(discoDinamico1);
-
-    const discoDinamico2 = document.createElement("div");
-    discoDinamico2.id = "disco2";
-    torre1.appendChild(discoDinamico2);
-
-    const discoDinamico3 = document.createElement("div");
-    discoDinamico3.id = "disco3";
-    torre1.appendChild(discoDinamico3);
-
-    const discoDinamico4 = document.createElement("div");
-    discoDinamico4.id = "disco4";
-    torre1.appendChild(discoDinamico4);
-}
-
-// container.addEventListener ("click" , function(e) {
-//     console.log(torre1);
-
-//     if (ultimoDisco === null) {
-//         estado++
-//     }
-//     if (e.target.classList.contains("torre1")) {
-//         if( estado % 2 !== 0) {
-//             estado++;
-//             console.log(torre1.lastElementChild);
-//             ultimoDisco = torre1.lastElementChild;
-//         } else if ( estado % 2 === 0) {
-//             if (ultimoDisco !== null && ultimoDisco !== undefined ){
-//                 if (widthSize(ultimoDisco,torre1.lastElementChild) === true){
-//                     torre1.appendChild(ultimoDisco);
-//                     estado++;
-//             }
-//         }
-//         }
-//     }
-//     if (e.target.classList.contains("torre2")) {
-//         if( estado % 2 !== 0) {
-//             ultimoDisco = torre2.lastElementChild;
-//             estado++;
-//         } else if ( estado % 2 === 0) {
-//             if (ultimoDisco !== null && ultimoDisco !== undefined){
-//                 if(widthSize(ultimoDisco,torre2.lastElementChild) === true) {
-//                     torre2.appendChild(ultimoDisco);
-//                     estado++;    
-//             }
-//         }   
-//         }
-//     }
-//     if (e.target.classList.contains("torre3")) {
-//         if( estado % 2 !== 0) {
-//             ultimoDisco = torre3.lastElementChild;
-//             estado++;
-//         }  else if ( estado % 2 === 0) {
-//             if(ultimoDisco !== null && ultimoDisco !== undefined){
-//                 if(widthSize(ultimoDisco,torre3.lastElementChild) === true){
-//                     torre3.appendChild(ultimoDisco);
-//                     estado++;
-//             }
-//         }
-//         }
-
-//         determinarVitoria(torre3);
-//     }
-//     pegandoSoltado(estado);
-   
-// })
-
-// const discoDinamico1 = document.createElement("div");
-// discoDinamico1.id = "disco1";
-// torre1.appendChild(discoDinamico1);
-
-// const discoDinamico2 = document.createElement("div");
-// discoDinamico2.id = "disco2";
-// torre1.appendChild(discoDinamico2);
-
-// const discoDinamico3 = document.createElement("div");
-// discoDinamico3.id = "disco3";
-// torre1.appendChild(discoDinamico3);
-
-// const discoDinamico4 = document.createElement("div");
-// discoDinamico4.id = "disco4";
-// torre1.appendChild(discoDinamico4);
-
 // Testa se o disco que vai soltar é menor que o ultimo disco da torre em que sera colocado
 function widthSize (pegou,soltou) {
     if( soltou === null){
@@ -201,6 +196,7 @@ function pegandoSoltado () {
     state.textContent = "Pegue um disco";
     if ( estado % 2 !== 0){
         state.textContent = "Pegue um disco";
+        state.classList.remove("soltando")
         state.classList.add ("pegando");
     } else if ( estado % 2 === 0) {
         state.textContent = "Solte o disco";
@@ -214,5 +210,3 @@ function determinarVitoria(nomeTorre){
         return true;
     }
 }
-
-
