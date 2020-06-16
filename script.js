@@ -8,7 +8,7 @@ let estado = 1;
 let qualTorre = 0;
 let ultimoDisco;
 
-function criarTorres () {
+function funcaoMaster() {
     let containerTorre = document.createElement("div");
     containerTorre.classList.add("containerTorre");
     container.appendChild(containerTorre);
@@ -53,6 +53,7 @@ function criarTorres () {
             estado++
         }
         
+        
         if(e.target.id === "disco4" && discoDinamico4 === torre1.lastElementChild){
             ultimoDisco = torre1.lastElementChild;
             console.log(ultimoDisco);
@@ -73,7 +74,7 @@ function criarTorres () {
             console.log(ultimoDisco);
             estado++;
         }
-        // torre 2
+      
         if(e.target.id === "disco4" && discoDinamico4 === torre2.lastElementChild){
             ultimoDisco = torre2.lastElementChild;
             console.log(ultimoDisco);
@@ -94,8 +95,6 @@ function criarTorres () {
             console.log(ultimoDisco);
             estado++;
         }
-        
-        // torre 3
 
         if(e.target.id === "disco4" && discoDinamico4 === torre3.lastElementChild){
             ultimoDisco = torre3.lastElementChild;
@@ -117,9 +116,6 @@ function criarTorres () {
             console.log(ultimoDisco);
             estado++;
         }
-    
-
-
         if (e.target.classList.contains("torre1")) {
             if( estado % 2 !== 0) {
                 estado++;
@@ -170,11 +166,11 @@ function criarTorres () {
 
             determinarVitoria(torre3);
         }
-        pegandoSoltado(estado);
+        pegandoSoltando(estado);
     
     })
 }
-criarTorres();
+funcaoMaster();
 // Testa se o disco que vai soltar é menor que o ultimo disco da torre em que sera colocado
 function widthSize (pegou,soltou) {
     if( soltou === null){
@@ -191,7 +187,7 @@ function widthSize (pegou,soltou) {
     }
 }
 // Mostra em qual modo o usuario esta
-function pegandoSoltado () {
+function pegandoSoltando () {
     state = document.getElementById("state");
     state.textContent = "Pegue um disco";
     if ( estado % 2 !== 0){

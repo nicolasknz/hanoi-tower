@@ -64,7 +64,6 @@ body {
 }
 
 .pegando {
-   
     font-weight: bold;
     color: white;
     display: inline-block;
@@ -73,7 +72,6 @@ body {
     color: white;
 }
 .soltando {
-    
     font-weight: bold;
     color: white;
     display: inline-block;
@@ -92,6 +90,5 @@ h1 {
     color: white;
     font-size: 50px;
     text-align: center;
-    
 }
 
