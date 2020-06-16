@@ -8,38 +8,33 @@ let qualTorre = 0;
 let ultimoDisco;
 
 container.addEventListener ("click" , function(e) {
-    console.log("Estado = " + estado)
+    if (ultimoDisco === null) {
+        estado++
+    }
     if (e.target.classList.contains("torre1")) {
-        // Se estado for impar
         if( estado % 2 !== 0) {
             estado++;
             ultimoDisco = torre1.lastElementChild;
-          
         } else if ( estado % 2 === 0) {
-            if (ultimoDisco === torre1.lastElementChild) {
-                estado--;
-            } else {
-                torre1.appendChild(ultimoDisco);
-                estado++;
+            if (ultimoDisco !== null && ultimoDisco !== undefined ){
+                if (widthSize(ultimoDisco,torre1.lastElementChild) === true){
+                    torre1.appendChild(ultimoDisco);
+                    estado++;
             }
-            console.log("Estado 2= " + estado)
         }
-        console.log(ultimoDisco);
+        }
     }
     if (e.target.classList.contains("torre2")) {
-       
         if( estado % 2 !== 0) {
             ultimoDisco = torre2.lastElementChild;
             estado++;
         } else if ( estado % 2 === 0) {
-            console.log(torre2.lastElementChild)
-            if (ultimoDisco === torre2.lastElementChild && torre2.lastElementChild === null) {
-                estado--;
-            } else {
-                torre2.appendChild(ultimoDisco);
-                estado++;     
-                console.log("else")
+            if (ultimoDisco !== null && ultimoDisco !== undefined){
+                if(widthSize(ultimoDisco,torre2.lastElementChild) === true) {
+                    torre2.appendChild(ultimoDisco);
+                    estado++;    
             }
+        }   
         }
     }
     if (e.target.classList.contains("torre3")) {
@@ -47,17 +42,20 @@ container.addEventListener ("click" , function(e) {
         if( estado % 2 !== 0) {
             ultimoDisco = torre3.lastElementChild;
             estado++;
-        } else if ( estado % 2 === 0) {
-            torre3.appendChild(ultimoDisco);
-            estado++;
+        }  else if ( estado % 2 === 0) {
+            if(ultimoDisco !== null && ultimoDisco !== undefined){
+                if(widthSize(ultimoDisco,torre3.lastElementChild) === true){
+                    torre3.appendChild(ultimoDisco);
+                    estado++;
+            }
+        }
         }
 
-        if(torre3.childElementCount === 4){
-            alert("Vitória");
-        }
+        determinarVitoria(torre3);
     }
 
-    
+    pegandoSoltado(estado);
+    console.log(ultimoDisco);
 })
 
 const discoDinamico1 = document.createElement("div");
@@ -75,3 +73,37 @@ torre1.appendChild(discoDinamico3);
 const discoDinamico4 = document.createElement("div");
 discoDinamico4.id = "disco4";
 torre1.appendChild(discoDinamico4);
+
+function widthSize (pegou,soltou) {
+  
+    if( soltou === null){
+        return true;
+    }
+    if ( pegou.clientWidth === soltou.clientWidth){
+        return true;
+    }
+    if (pegou.clientWidth < soltou.clientWidth) {
+        return true;
+    } else if (pegou.clientWidth > soltou.clientWidth) {
+        alert("movimento impossivel");
+        false;
+    }
+}
+function pegandoSoltado () {
+    state = document.getElementById("state");
+    state.textContent = "Pegue um disco";
+    if ( estado % 2 !== 0){
+        state.textContent = "Pegue um disco";
+        state.classList.add ("pegando");
+    } else if ( estado % 2 === 0) {
+        state.textContent = "Solte o disco";
+        state.classList.add ("soltando");
+    }
+}
+function determinarVitoria(nomeTorre){
+    if(nomeTorre.childElementCount === 4){
+        alert("Vitória");
+        
+        return true;
+    }
+}
