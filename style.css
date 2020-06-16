@@ -1,20 +1,29 @@
 :root {
     --height-torre: 20px;
 }
-html {
+*html {
     font-family: 'Montserrat', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #5199EE;
 }
 .containerTorre  div {
     display: flex; 
     flex-direction: column-reverse; 
     align-items: center;
     height: 200px;
-    width: 10px;
+    width: 15px;
     background-color: black;
     margin: 0 auto;
 }
 #container {
-    margin-top: 20rem;
+    margin-top: 9rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;	
@@ -25,41 +34,64 @@ html {
     height: 200px;
 
 }
-
 #disco1 {
     width: 110px;
     height: var(--height-torre);
     background-color: blue;
     margin-left: -50px;
+    border-radius: 5px;
 }
 #disco2 {
     width: 90px;
     height: var(--height-torre);
-    background-color: orange;
+    background-color: red;
     margin-left: -39px;
+    border-radius: 5px;
 }
 #disco3 {
     width: 70px;
     height: var(--height-torre);
     background-color:hotpink;
     margin-left: -28px;
+    border-radius: 5px;
 }
 #disco4 {
     width: 50px;
     height: var(--height-torre);
     background-color: green;
-    margin-left: -20px
+    margin-left: -17px;
+    border-radius: 5px;
 }
+
 .pegando {
-    background-color: black;
-    font-weight: bold;
-    color: white;
-    font-size: 20px;
-}
-.soltando {
-    background-color: black ;
+   
     font-weight: bold;
     color: white;
     display: inline-block;
     padding: 5px;
+    font-size: 50px;
+    color: yellow;
 }
+.soltando {
+    
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 5px;
+    font-size: 50px;
+}
+header {
+    width:;
+    height: 200px;
+    background-color:#1C3869 ;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+h1 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    
+}
+
