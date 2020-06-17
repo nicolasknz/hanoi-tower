@@ -1,11 +1,10 @@
-
+// aOSKAOSKOASKOASKOAKAOSMAOS
 const container = document.getElementById("container");
 const torre1 = document.querySelector(".torre1");
 const torre2 = document.querySelector(".torre2");
 const torre3 = document.querySelector(".torre3");
 const torre4 = document.querySelector(".torre4");
 let estado = 1;
-let qualTorre = 0;
 let ultimoDisco;
 
 function funcaoMaster() {
@@ -30,7 +29,6 @@ function funcaoMaster() {
     torre3.classList.add("torre3");
     containerTorre3.appendChild(torre3);
 
-
     const discoDinamico1 = document.createElement("div");
     discoDinamico1.id = "disco1";
     torre1.appendChild(discoDinamico1);
@@ -47,13 +45,11 @@ function funcaoMaster() {
     discoDinamico4.id = "disco4";
     torre1.appendChild(discoDinamico4);
 
+    let tentativas = 0;
     container.addEventListener ("click" , function(e) {
-
         if (ultimoDisco === null) {
-            estado++
+            estado++ 
         }
-        
-        
         if(e.target.id === "disco4" && discoDinamico4 === torre1.lastElementChild){
             ultimoDisco = torre1.lastElementChild;
             console.log(ultimoDisco);
@@ -68,53 +64,61 @@ function funcaoMaster() {
             ultimoDisco = torre1.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco1" && discoDinamico1 === torre1.lastElementChild){
             ultimoDisco = torre1.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+          
         }
-      
         if(e.target.id === "disco4" && discoDinamico4 === torre2.lastElementChild){
             ultimoDisco = torre2.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+           
         }
         if(e.target.id === "disco3" && discoDinamico3 === torre2.lastElementChild){
             ultimoDisco = torre2.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco2" && discoDinamico2 === torre2.lastElementChild){
             ultimoDisco = torre2.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco1" && discoDinamico1 === torre2.lastElementChild){
             ultimoDisco = torre2.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
-
         if(e.target.id === "disco4" && discoDinamico4 === torre3.lastElementChild){
             ultimoDisco = torre3.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco3" && discoDinamico3 === torre3.lastElementChild){
             ultimoDisco = torre3.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco2" && discoDinamico2 === torre3.lastElementChild){
             ultimoDisco = torre3.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if(e.target.id === "disco1" && discoDinamico1 === torre3.lastElementChild){
             ultimoDisco = torre3.lastElementChild;
             console.log(ultimoDisco);
             estado++;
+            
         }
         if (e.target.classList.contains("torre1")) {
             if( estado % 2 !== 0) {
@@ -125,10 +129,8 @@ function funcaoMaster() {
                     if (widthSize(ultimoDisco,torre1.lastElementChild) === true){
                         torre1.appendChild(ultimoDisco);
                         estado++;
-                } else {
-                    
-                    ultimoDisco = null;
-                }
+                        tentativas++;
+                } 
             }
             }
         }
@@ -140,11 +142,9 @@ function funcaoMaster() {
                 if (ultimoDisco !== null && ultimoDisco !== undefined){
                     if(widthSize(ultimoDisco,torre2.lastElementChild) === true) {
                         torre2.appendChild(ultimoDisco);
-                        estado++;    
-                } else {
-                    
-                    ultimoDisco = null;
-                }
+                        estado++;  
+                        tentativas++;  
+                } 
             }   
             }
         }
@@ -157,17 +157,16 @@ function funcaoMaster() {
                     if(widthSize(ultimoDisco,torre3.lastElementChild) === true){
                         torre3.appendChild(ultimoDisco);
                         estado++;
-                } else {
-                
-                    ultimoDisco = null;
-                }
+                        tentativas++;
+                } 
             }
             }
-
             determinarVitoria(torre3);
         }
         pegandoSoltando(estado);
     
+    let divTentativas = document.getElementById("divTentativas");
+    divTentativas.textContent = tentativas;
     })
 }
 funcaoMaster();
@@ -182,7 +181,9 @@ function widthSize (pegou,soltou) {
     if (pegou.clientWidth < soltou.clientWidth) {
         return true;
     } else if (pegou.clientWidth > soltou.clientWidth) {
-        alert("movimento impossivel");
+        alert("Solte o disco em outra torre ou na mesma");
+        
+       
         return false;
     }
 }
@@ -203,6 +204,7 @@ function pegandoSoltando () {
 function determinarVitoria(nomeTorre){
     if(nomeTorre.childElementCount === 4){
         alert("Vitória");
+        location.reload();
         return true;
     }
 }
